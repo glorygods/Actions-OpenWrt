@@ -19,6 +19,8 @@ sed -i 's/192.168.1.1/192.168.3.2/g' package/base-files/files/bin/config_generat
 # 修改输出文件名
 sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=full-$(shell date +%Y%m%d)-$(VERSION_DIST_SANITIZED)/g' include/image.mk
 
+# 清除root登录密码
+sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' package/lean/default-settings/files/zzz-default-settings
 # 修改系统版本号
 pushd package/lean/default-settings/files
 sed -i '/http/d' zzz-default-settings
@@ -28,8 +30,7 @@ popd
 
 # 修改默认主题
 sed -i 's/luci-theme-bootstrap/luci-theme-luci-design/g' feeds/luci/collections/luci/Makefile
-# 清除root登录密码
-sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/lean/default-settings/files/zzz-default-settings
+
 
 # 修改连接数数
 sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
