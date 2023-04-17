@@ -28,6 +28,8 @@ popd
 
 # 修改默认主题
 sed -i 's/luci-theme-bootstrap/luci-theme-luci-design/g' feeds/luci/collections/luci/Makefile
+# 清除root登录密码
+sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/lean/default-settings/files/zzz-default-settings
 
 # 修改连接数数
 sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
