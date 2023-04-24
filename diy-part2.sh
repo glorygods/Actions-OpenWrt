@@ -29,7 +29,7 @@ sed -i "s/${orig_version}/${orig_version} ($(date +"%Y-%m-%d"))/g" zzz-default-s
 popd
 
 # 修改默认主题
-sed -i 's/luci-theme-bootstrap/luci-theme-luci-design/g' feeds/luci/collections/luci/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-design/g' feeds/luci/collections/luci/Makefile
 
 
 # 修改连接数数
